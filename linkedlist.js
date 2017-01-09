@@ -66,6 +66,35 @@ Linkedlist.prototype.get = function(value) {
   }
 };
 
-Linkedlist.prototype.remove = function() {
-
+Linkedlist.prototype.remove = function(data) {
+  if(this.head.data === data) {
+    var curr = this.head;
+    curr = curr.next;
+    this.head = curr;
+    return true;
+  } else {
+    var curr = this.head;
+    var prev = this.head;
+    var counter = 0;
+    while(curr.data != data) {
+      if(counter < this.length) {
+        if(counter > 0) {
+          prev = prev.next;
+        }
+        curr = curr.next;
+        counter++;
+      } else {
+        return false;
+      }
+    }
+    if(counter === this.length - 1) {
+      prev.next = null;
+      delete curr;
+      return true;
+    } else {
+      curr = curr.next;
+      prev.next = curr;
+      return true;
+    }
+  }
 };
