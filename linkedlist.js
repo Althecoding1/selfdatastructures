@@ -27,9 +27,17 @@ Linkedlist.prototype.prettyPrint = function() {
 };
 
 Linkedlist.prototype.append = function(data) {
-
+  if(this.head.data === null) {
+    this.head.data = new Node(data, null);
+  } else {
+    let curr = this.head;
+    while(curr.next != null) {
+      curr = curr.next;
+    }
+    const node = new Node(data, null);
+    curr.next = node;
+  }
 };
-
 
 Linkedlist.prototype.prepend = function(data) {
 
