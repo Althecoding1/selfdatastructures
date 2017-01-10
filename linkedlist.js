@@ -13,7 +13,7 @@ function Linkedlist() {
 };
 
 Linkedlist.prototype.prettyPrint = function() {
-  const curr = this.head;
+  let curr = this.head;
   let result = '';
   while(curr != null) {
     if(curr.next === null) {
