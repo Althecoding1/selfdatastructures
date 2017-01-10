@@ -1,29 +1,27 @@
-function Stack() {
+function Queue() {
   this.elements = [];
 };
 
-Stack.prototype.add = function(value) {
-  this.elements.push(value);
+Queue.prototype.joinQueue = function(element) {
+  this.elements.push(element);
 };
 
-Stack.prototype.remove = function() {
-  this.elements.pop();
+Queue.prototype.leaveQueue = function() {
+  this.elements.shift();
 };
 
-Stack.prototype.checkSize = function() {
+Queue.prototype.seeQueue = function() {
+  this.elements.join(" , ");
+};
+
+Queue.prototype.queueLength = function() {
   return this.elements.length;
 };
 
-Stack.prototype.hasElement = function(element) {
-  for(var i = 0; i < this.elements.length; i++) {
-    this.elements[i] === element ? true : false;
-  }
+Queue.prototype.first = function() {
+  return this.elements[0];
 };
 
-Stack.prototype.reset = function() {
-  this.elements = [];
-};
-
-Stack.prototype.topBook = function() {
-  return this.elements[this.elements.length - 1];
+Queue.prototype.isEmpty = function() {
+  return this.elements.length > 0 ? true : false;
 };
